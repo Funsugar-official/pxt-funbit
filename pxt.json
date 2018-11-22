@@ -1,6 +1,6 @@
 {
     "name": "pxt-funsugar",
-    "version": "1.4.4",
+    "version": "0.0.1",
     "description": "Extension for Funsugar funbit",
     "dependencies": {
         "core": "*"
