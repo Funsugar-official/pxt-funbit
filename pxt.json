@@ -1,0 +1,16 @@
+{
+    "name": "pxt-funsugar",
+    "version": "1.4.4",
+    "description": "Extension for Funsugar funbit",
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "README.md",
+        "main.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": true
+}
