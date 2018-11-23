@@ -26,8 +26,8 @@ namespace Funsugar {
                     pins.digitalWritePin(DigitalPin.P14, 0);
                 }
                 else {
-                    pins.analogWritePin(AnalogPin.P14, pins.map(-speed, 0, 100, 0, 1023));
-                    pins.digitalWritePin(DigitalPin.P13, 1);
+                    pins.analogWritePin(AnalogPin.P14, pins.map(-speed, 0, 100, 1023, 0));
+                    pins.digitalWritePin(DigitalPin.P13, 0);
                 }
 
                 break;
@@ -37,8 +37,8 @@ namespace Funsugar {
                     pins.digitalWritePin(DigitalPin.P10, 0);
                 }
                 else {
-                    pins.analogWritePin(AnalogPin.P10, pins.map(-speed, 0, 100, 0, 1023));
-                    pins.digitalWritePin(DigitalPin.P15, 1);
+                    pins.analogWritePin(AnalogPin.P10, pins.map(-speed, 0, 100, 1023, 0));
+                    pins.digitalWritePin(DigitalPin.P15, 0);
                 }
 
                 break;
