@@ -23,22 +23,22 @@ namespace Funsugar {
             case Motors.Motor1: /*Motor A uses Pins 13 and 14*/
                 if (speed>0) {
                     pins.analogWritePin(AnalogPin.P13, pins.map(speed, 0, 100, 0, 1023));
-                    pins.analogWritePin(AnalogPin.P14, 0);
+                    pins.digitalWritePin(DigitalPin.P14, 1);
                 }
                 else {
                     pins.analogWritePin(AnalogPin.P14, pins.map(-speed, 0, 100, 0, 1023));
-                    pins.analogWritePin(AnalogPin.P13, 0);
+                    pins.digitalWritePin(DigitalPin.P13, 1);
                 }
 
                 break;
             case Motors.Motor2: /*Motor B uses Pins 15 and 10*/
                 if (speed>0) {
                     pins.analogWritePin(AnalogPin.P15, pins.map(speed, 0, 100, 0, 1023));
-                    pins.analogWritePin(AnalogPin.P10, 0);
+                    pins.digitalWritePin(DigitalPin.P10, 1);
                 }
                 else {
                     pins.analogWritePin(AnalogPin.P10, pins.map(-speed, 0, 100, 0, 1023));
-                    pins.analogWritePin(AnalogPin.P15, 0);
+                    pins.digitalWritePin(DigitalPin.P15, 1);
                 }
 
                 break;
