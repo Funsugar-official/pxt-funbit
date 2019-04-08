@@ -1,5 +1,5 @@
 
-//% weight=10 color=#31C7D5 icon="\uf1b0" block="乐糖1"
+//% weight=10 color=#31C7D5 icon="\uf1b0" block="乐糖"
 
 namespace Funsugar {
     export enum Motors {
@@ -12,7 +12,13 @@ namespace Funsugar {
     }
 
     let distanceBuf = 0;
-
+    
+	function i2cwrite(addr: number, reg: number, value: number) {
+        let buf = pins.createBuffer(2)
+        buf[0] = reg
+        buf[1] = value
+        pins.i2cWriteBuffer(addr, buf)
+    }
     /**
      * Runs the motor at the given speed
      */
@@ -21,26 +27,28 @@ namespace Funsugar {
     export function MotorRun(motor: Motors, speed: number) {
         switch (motor) {
             case Motors.Motor1: /*Motor A uses Pins 13 and 14*/
-                if (speed>0) {
-                    pins.analogWritePin(AnalogPin.P13, pins.map(speed, 0, 100, 0, 1023));
-                    pins.digitalWritePin(DigitalPin.P14, 1);
-                }
-                else {
-                    pins.analogWritePin(AnalogPin.P14, pins.map(-speed, 0, 100, 1023, 0));
-                    pins.digitalWritePin(DigitalPin.P13, 1);
-                }
+                // if (speed>0) {
+                    // pins.analogWritePin(AnalogPin.P13, pins.map(speed, 0, 100, 0, 1023));
+                    // pins.digitalWritePin(DigitalPin.P14, 1);
+                // }
+                // else {
+                    // pins.analogWritePin(AnalogPin.P14, pins.map(-speed, 0, 100, 1023, 0));
+                    // pins.digitalWritePin(DigitalPin.P13, 1);
+                // }
+				i2cwrite(11, 1, 2);
 
                 break;
             case Motors.Motor2: /*Motor B uses Pins 15 and 10*/
-                if (speed>0) {
-                    pins.analogWritePin(AnalogPin.P15, pins.map(speed, 0, 100, 0, 1023));
-                    pins.digitalWritePin(DigitalPin.P10, 1);
-                }
-                else {
-                    pins.analogWritePin(AnalogPin.P10, pins.map(-speed, 0, 100, 1023, 0));
-                    pins.digitalWritePin(DigitalPin.P15, 1);
-                }
-
+                // if (speed>0) {
+                    // pins.analogWritePin(AnalogPin.P15, pins.map(speed, 0, 100, 0, 1023));
+                    // pins.digitalWritePin(DigitalPin.P10, 1);
+                // }
+                // else {
+                    // pins.analogWritePin(AnalogPin.P10, pins.map(-speed, 0, 100, 1023, 0));
+                    // pins.digitalWritePin(DigitalPin.P15, 1);
+                // }
+				i2cwrite(11, 2, 3);
+				
                 break;
         }
     }
